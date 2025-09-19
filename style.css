@@ -97,47 +97,98 @@ section p{ color: var(--muted); }
 
 /* GRID */
 .grid{
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr;     /* mobile: tek sütun */
-  margin-top: 16px;
+  display: grid;                      /* Grid düzenini açar */
+  gap: 16px;                          /* Kartlar arası boşluk */
+  grid-template-columns: 1fr;         /* Mobil: tek sütun */
+  margin-top: 16px;                   /* Üstten boşluk */
 }
-@media (min-width: 768px){
-  .grid{ grid-template-columns: repeat(3, 1fr); }  /* tablet/desktop: 3 sütun */
+@media (min-width: 768px){            /* 768px üstü ekranlar (tablet/PC) */
+  .grid{ grid-template-columns: repeat(3, 1fr); } /* 3 sütun yapar */
 }
 
 /* CARD */
 .card{
-  background: var(--card);
-  border: 1px solid rgba(148,163,184,.15);
-  border-radius: 14px;
-  padding: 16px;
-  display: grid;
-  gap: 8px;
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  background: var(--card);            /* Koyu arka plan */
+  border: 1px solid rgba(148,163,184,.15); /* İnce gri çerçeve */
+  border-radius: 14px;                /* Köşeleri yuvarla */
+  padding: 16px;                      /* İç boşluk */
+  display: grid; gap: 8px;            /* İç öğeler arası boşluk */
+  transition: transform .15s, box-shadow .15s, border-color .15s; /* Hover efekti geçişi */
 }
 .card:hover{
-  transform: translateY(-2px);
-  border-color: rgba(148,163,184,.35);
-  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  transform: translateY(-2px);        /* Hover’da yukarı kayar */
+  border-color: rgba(148,163,184,.35);/* Çerçeve belirginleşir */
+  box-shadow: 0 8px 24px rgba(0,0,0,.25); /* Gölge efekti */
 }
+
 .card-head{
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 10px; /* İkon + başlık yan yana */
 }
 .badge{
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 36px; height: 36px; border-radius: 10px;
-  background: rgba(148,163,184,.15);
-  font-size: 18px;
+  display: inline-flex;               /* Küçük kutu ikon alanı */
+  align-items: center; justify-content: center;
+  width: 36px; height: 36px;          /* Kare boyut */
+  border-radius: 10px;                /* Köşeleri yuvarlat */
+  background: rgba(148,163,184,.15);  /* Hafif gri arka plan */
+  font-size: 18px;                    /* Emoji boyutu */
 }
-.card h3{ margin: 0; }
-.card p{ margin: 0 0 6px; color: var(--muted); }
+.card h3{ margin: 0; }                /* Başlık boşluğunu kaldır */
+.card p{ margin: 0 0 6px; color: var(--muted); } /* Açıklama stili */
 .card-link{
-  margin-top: 4px;
-  display: inline-block;
-  padding: 8px 10px;
-  border: 1px solid rgba(148,163,184,.35);
-  border-radius: 10px;
-  font-weight: 700;
+  margin-top: 4px;                    /* Üstten küçük boşluk */
+  display: inline-block;              /* Linki buton gibi yap */
+  padding: 8px 10px;                  /* İç boşluk */
+  border: 1px solid rgba(148,163,184,.35); /* İnce çerçeve */
+  border-radius: 10px;                /* Yuvarlak köşe */
+  font-weight: 700;                   /* Kalın yazı */
 }
-.card-link:hover{ transform: translateY(-1px); }
+.card-link:hover{ transform: translateY(-1px); } /* Hover’da küçük kayma */
+
+/* FORM GENEL */
+form{
+  background: var(--card);                    /* Koyu arka plan kutusu */
+  border: 1px solid rgba(148,163,184,.15);    /* İnce çerçeve */
+  border-radius: 14px;                        /* Yuvarlatılmış köşe */
+  padding: 16px;                              /* İç boşluk */
+  display: grid; gap: 14px;                   /* Satırlar arası boşluk */
+  margin-top: 12px;                           /* Üstten ayrım */
+}
+
+.form-row{ display: grid; gap: 6px; }         /* Her satır dikey düzen */
+label{ font-weight: 700; }                    /* Etiketleri vurgula */
+
+input, textarea{
+  width: 100%;                                /* Tam genişlik */
+  padding: 10px 12px;                         /* İç boşluk */
+  border-radius: 10px;                        /* Yuvarlak köşe */
+  border: 1px solid rgba(148,163,184,.35);    /* İnce çerçeve */
+  background: #0b1220;                        /* Koyu input zemini */
+  color: var(--text);                         /* Yazı rengi */
+  outline: none;                              /* Varsayılan çerçeveyi kaldır */
+}
+input:focus, textarea:focus{
+  border-color: var(--accent);                /* Odakta yeşil vurgu */
+  box-shadow: 0 0 0 3px rgba(34,197,94,.15);  /* Yumuşak glow */
+}
+
+.err{
+  min-height: 18px;                           /* Boşken layout oynamasın */
+  color: #fca5a5;                             /* Kızıl hata rengi */
+  font-size: 13px;                            /* Küçük yazı */
+}
+
+.form-actions{
+  display: flex; gap: 10px;                   /* Buton aralığı */
+  flex-wrap: wrap;                            /* Küçük ekranda alt satıra insin */
+}
+
+.form-result{
+  margin: 6px 0 0;                            /* Üstten küçük boşluk */
+  font-weight: 700;                           /* Vurgulu metin */
+  color: var(--accent);                       /* Başarılı mesaj rengi */
+}
+
+/* Küçük iyileştirmeler */
+button:disabled{
+  opacity: .6; cursor: not-allowed;           /* Gönderimde pasif görünüm */
+}

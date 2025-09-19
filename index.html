@@ -36,20 +36,23 @@
     </div>
   </header>
 
-<section id="feat" class="container">
-  <h2>Özellikler</h2>
-  <p>Küçük bir grid ile kartlarımızı gösterelim.</p>
+<section id="feat" class="container"> <!-- Özellikler bölümü -->
+  <h2>Özellikler</h2> <!-- Bölüm başlığı -->
+  <p>Küçük bir grid ile kartlarımızı gösterelim.</p> <!-- Açıklama -->
 
-  <div class="grid">
-    <article class="card">
-      <div class="card-head">
-        <span class="badge">⚡</span>
-        <h3>Hızlı Kurulum</h3>
+  <div class="grid"> <!-- Grid yapısı: kartları düzenler -->
+    
+    <!-- Kart 1 -->
+    <article class="card"> <!-- Tek bir özellik kartı -->
+      <div class="card-head"> <!-- Başlık kısmı -->
+        <span class="badge">⚡</span> <!-- Emoji simgesi (ikon yerine) -->
+        <h3>Hızlı Kurulum</h3> <!-- Kart başlığı -->
       </div>
-      <p>HTML/CSS/JS ile sade, hızlı ve anlaşılır yapı.</p>
-      <a class="card-link" href="#hero">Detay</a>
+      <p>HTML/CSS/JS ile sade, hızlı ve anlaşılır yapı.</p> <!-- Kart açıklaması -->
+      <a class="card-link" href="#hero">Detay</a> <!-- Kart içi link -->
     </article>
 
+    <!-- Kart 2 -->
     <article class="card">
       <div class="card-head">
         <span class="badge">🧩</span>
@@ -59,6 +62,7 @@
       <a class="card-link" href="#feat">Detay</a>
     </article>
 
+    <!-- Kart 3 -->
     <article class="card">
       <div class="card-head">
         <span class="badge">🚀</span>
@@ -67,13 +71,65 @@
       <p>GitHub Pages ile ücretsiz ve anında yayın.</p>
       <a class="card-link" href="#cont">Detay</a>
     </article>
+
   </div>
 </section>
 
-  <section id="cont" class="container">
-    <h2>İletişim</h2>
-    <p>Buraya basit bir form ekleyeceğiz.</p>
-  </section>
+
+<section id="cont" class="container"> <!-- İletişim bölümü kapsayıcı -->
+  <h2>İletişim</h2> <!-- Bölüm başlığı -->
+  <p>Formu doldur, sana dönüş yapalım.</p> <!-- Kısa açıklama -->
+
+  <form id="contactForm" novalidate> <!-- novalidate: tarayıcı default uyarılarını kapatır, kendi kontrolümüzü yaparız -->
+    <div class="form-row"> <!-- Ad Soyad satırı -->
+      <label for="fullName">Ad Soyad</label> <!-- Etiket: erişilebilirlik için input ile ilişkilendirildi -->
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        placeholder="Adın ve Soyadın"  <!-- Kullanıcıya ipucu -->
+        required                              <!-- Boş bırakılamaz -->
+        minlength="2"                         <!-- En az 2 karakter -->
+      />
+      <small class="err" id="errName"></small> <!-- Hata mesajı alanı -->
+    </div>
+
+    <div class="form-row"> <!-- E-posta satırı -->
+      <label for="email">E-posta</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="ornek@mail.com"
+        required
+        inputmode="email"                      <!-- Mobil klavyede uygun düzen -->
+        autocomplete="email"                   <!-- Tarayıcı önerileri -->
+      />
+      <small class="err" id="errEmail"></small>
+    </div>
+
+    <div class="form-row"> <!-- Mesaj satırı -->
+      <label for="message">Mesaj</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        placeholder="Mesajını buraya yaz"
+        required
+        minlength="10"                         <!-- En az 10 karakter -->
+      ></textarea>
+      <small class="err" id="errMsg"></small>
+    </div>
+
+    <div class="form-actions"> <!-- Buton satırı -->
+      <button type="submit" class="btn primary">Gönder</button> <!-- Formu gönderir -->
+      <button type="reset"  class="btn ghost">Temizle</button>   <!-- Formu sıfırlar -->
+    </div>
+
+    <p id="formResult" class="form-result" aria-live="polite"></p> <!-- Sonuç mesajı için alan -->
+  </form>
+</section>
+
 
   <script src="./script.js"></script>
 </body>

@@ -1,1 +1,17 @@
-body { font-family: system-ui, Arial, sans-serif; }
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0f172a; /* koyu lacivert */
+  color: #e2e8f0;      /* açık gri */
+  display: grid;
+  place-items: center;
+}
+.container { text-align: center; max-width: 640px; padding: 24px; }
+h1 { margin: 0 0 8px; font-size: 40px; line-height: 1.1; }
+p  { margin: 0 0 16px; opacity: .9; }
+button {
+  padding: 10px 16px; border: 0; border-radius: 10px;
+  font-weight: 600; cursor: pointer;
+}
+button:hover { transform: translateY(-1px); }
